@@ -1,0 +1,138 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main()
+{
+    long long t,i;
+    cin>>t;
+    for(i=0;i<t;i++)
+    {
+        long long n,a[5]={1,2,3,4,5},h,x=0,i,b,c,d,e,z,f,g,j,m=0,q;
+        cin>>n;
+        while(1)
+        {
+            cout<<"? "<<a[0]<<" "<<a[1]<<" "<<a[2]<<" "<<a[3]<<" "<<a[4]<<"\n";
+            cin>>f>>g;
+            h=a[4];
+            b=a[0];
+            c=a[1];
+            d=a[2];
+            e=a[3];
+            for(j=0;j<5;j++)
+            {
+
+                if(a[j]==f)
+                    a[j]=h+1;
+                else if(a[j]==g)
+                    a[j]=h+2;
+            }
+            sort(a,a+5);
+            if(a[4]>n)
+               {
+                 if(a[4]-n==1)
+                 {i=a[3];
+                    x=2;
+                 }
+                break;}
+                if(m==0)
+                  q=f;
+                m++;
+        }
+        long long s[5]={b,c,d,e,h};
+        for(z=0;z<5;z++)
+        {
+            if(s[z]==f)
+            s[z]=0;
+            else if(s[z]==g)
+            s[z]=0;
+        }
+        long long p[5],ji=0;
+        for(z=0;z<5;z++)
+        {
+        if(s[z]!=0)
+        {p[ji]=s[z];
+        ji++;}
+        }
+        if(x==0)
+         {
+             p[ji]=q;
+             ji++;
+             p[ji]=g;
+         }
+         else if(x==2)
+         {p[ji]=i;
+             ji++;
+             p[ji]=g;
+         }
+         sort(p,p+5);
+         cout<<"? "<<p[0]<<" "<<p[1]<<" "<<p[2]<<" "<<p[3]<<" "<<p[4]<<"\n";
+         long long fi,se;
+         cin>>se>>fi;
+         for(z=0;z<5;z++)
+        {
+        if(p[z]==se)
+            p[z]=0;
+        else if(p[z]==fi)
+            p[z]=0;
+        }
+         long long po[3],ho=0;
+         for(z=0;z<5;z++)
+        {
+        if(p[z]!=0)
+        {
+            po[ho]=p[z];
+            ho++;
+        }
+        }
+            cout<<"? "<<f<<" "<<se<<" "<<fi<<" "<<po[0]<<" "<<po[1]<<"\n";
+            long long fir,sec,ki=0;
+            cin>>sec>>fir;
+            if(fi!=sec&&fi!=fir)
+            {cout<<"! "<<po[2]<<"\n";
+                ki=2;
+            }
+            else if(sec==fi&&fir==po[0])
+            {   cout<<"! "<<po[1]<<"\n";
+                ki=2;
+            }
+            else if(sec==fi&&fir==po[1])
+            { cout<<"! "<<po[0]<<"\n";
+                ki=2;
+            }
+           if(ki!=2)
+           {
+               cout<<"? "<<f<<" "<<se<<" "<<fi<<" "<<po[1]<<" "<<po[2]<<"\n";
+            cin>>sec>>fir;
+            if(fi!=sec&&fi!=fir)
+            {cout<<"! "<<po[0]<<"\n";
+                ki=4;
+            }
+            else if(sec==fi&&fir==po[2])
+            {   cout<<"! "<<po[1]<<"\n";
+                ki=4;
+            }
+            else if(sec==fi&&fir==po[1])
+            { cout<<"! "<<po[2]<<"\n";
+                ki=4;
+            }
+           }
+           if(ki==0)
+             {
+               cout<<"? "<<f<<" "<<se<<" "<<fi<<" "<<po[0]<<" "<<po[2]<<"\n";
+            cin>>sec>>fir;
+            if(fi!=sec&&fi!=fir)
+            {cout<<"! "<<po[1]<<"\n";
+                ki=4;
+            }
+            else if(sec==fi&&fir==po[2])
+            {   cout<<"! "<<po[0]<<"\n";
+                ki=4;
+            }
+            else if(sec==fi&&fir==po[0])
+            { cout<<"! "<<po[2]<<"\n";
+                ki=4;
+            }
+           }
+    }
+return 0;
+}
